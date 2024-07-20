@@ -1,10 +1,11 @@
+import RightSidebar from '@/components/RightSidebar'
 import TotalBalanceBox from '@/components/TotalBalanceBox'
 import HeaderBox from '@/components/ui/HeaderBox'
 import { Fira_Sans } from 'next/font/google'
 import React from 'react'
 
 const Home = () => {
-  const loggedIn ={ firstName: 'John'}
+  const loggedIn ={ firstName: 'John', lastName: 'Doe', email: 'john.doe@gmail.com'}
   return (
     <section className='home'>
         <div className='home-content'>
@@ -16,7 +17,6 @@ const Home = () => {
                 subtext="Access and manage your account 
                 and transactions efficiently"
                 />
-            
             <TotalBalanceBox 
             accounts={[]}
             totalBanks={1}
@@ -25,7 +25,11 @@ const Home = () => {
             </header>
             RECENT TRANSACTIONS
         </div>
-        RIGHT SIDEBAR
+        <RightSidebar 
+        user={loggedIn}
+        transactions={[]}
+        banks={[{currentBalance: 123.50},{currentBalance: 500}]}
+        />
     </section>
   )
 }
